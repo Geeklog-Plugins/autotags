@@ -1,0 +1,32 @@
+Install/Uninstall instruction for the Geeklog autotags plugin. These instructions assume you have installed a plugin before.
+
+You must be using at least Geeklog version 1.8.0 to install this plugin.
+
+INSTALL:
+
+Step 1:  Back up your Geeklog Database.  The autotags plugin adds tables to your Geeklog database.  You can do this with the built in admin backup facility.
+
+Step 2:  Uncompress the autotags plugin archive from the path.to.geeklog/plugins directory.  The archive will create a directory called autotags in the plugins directory.
+
+Step 3:  Create the public_html and admin directories.  Under your html directory (usually public_html) create a directory called "autotags".  Under your admin/plugins/ directory create a directory called "autotags".
+
+Step 4:  From the path.to.geeklog/plugins/autotags/ directory, copy the files in the admin directory to the admin/plugins/autotags/ directory your created in step 3.  Likewise, copy the files and directories in the public_html directory to the public_html/autotags/ directory your created in step 3.
+
+Step 5:  Log in to your Geeklog as a root user and run install.php in your admin/plugins/autotags/ directory.  There should be a link to this on the admin/plugins page.  The install page will tell you if the install was successful or not.  If not examine Geeklog's log/error.log for possible problems.
+
+The autotags plugin should now be installed and functioning.  Clicking on the autotags Icon will take you to the admin page.
+
+Step 6:  Go to the Geeklog Configuration and find the Autotags Configuration. A fresh install is heavily restricted, only allowing administrative access.  From here you can loosen up the restrictions if you wish.
+
+Step 7:  None of the provided autotags are enabled by the installer. They are provided as examples of things you can do with autotags.
+
+UNINSTALL:
+
+Step 1:  From the admin/plugins page, edit the autotags plugin and use the delete function.
+
+Step 2:  Delete the three plugin directories created in the install process:  
+<geeklog-dir>plugins/autotags/ 
+<public_html>/autotags/
+<admin>/plugins/autotags/
+
+That's it.
