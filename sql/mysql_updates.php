@@ -22,6 +22,10 @@ $_UPDATES = array(
         "ALTER TABLE {$_TABLES['autotags']} ADD perm_group tinyint(1) unsigned NOT NULL default 2 AFTER perm_owner",
         "ALTER TABLE {$_TABLES['autotags']} ADD perm_members tinyint(1) unsigned NOT NULL default 2 AFTER perm_group",
         "ALTER TABLE {$_TABLES['autotags']} ADD perm_anon tinyint(1) unsigned NOT NULL default 2 AFTER perm_members"
+    ), 
+    
+    '1.1.0' => array(
+        "ALTER TABLE {$_TABLES['autotags']} CHANGE `description` `description` VARCHAR(255) NULL"
     )
     
 );

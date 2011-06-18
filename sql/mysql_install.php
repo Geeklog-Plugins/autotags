@@ -39,7 +39,7 @@
 $_SQL[] = "
 CREATE TABLE {$_TABLES['autotags']} (
   tag varchar(24) NOT NULL default '',
-  description varchar(128) default '',
+  description varchar(255) default '',
   is_enabled tinyint(1) NOT NULL default 0,
   is_function tinyint(1) NOT NULL default 0,
   replacement text,

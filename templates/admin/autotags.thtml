@@ -7,7 +7,7 @@
           </tr>
           <tr>
               <td align="right" valign="top" style="white-space:nowrap;">{lang_desc}:</td>
-              <td><input type="text" name="description" size="75" maxlength="128" value="{description}"></td>
+              <td><input type="text" name="description" size="75" maxlength="255" value="{description}"></td>
           </tr>
           <tr>
               <td align="right" valign="top" style="white-space:nowrap;">{lang_enabled}</td>

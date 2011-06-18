@@ -195,6 +195,10 @@ function plugin_upgrade_autotags()
             
             $current_version = '1.1.0';
             break;
+            
+        case '1.1.0':
+            $current_version = '1.1.1';
+            break;
 
         default:
             $done = true;
@@ -268,7 +272,7 @@ function plugin_getadminoption_autotags()
 
 function plugin_getmenuitems_autotags()
 {
-    global $_AUTO_CONF, $LANG_AUTO;
+    global $_CONF, $_AUTO_CONF, $LANG_AUTO;
 
     $menuitems = array();
     
