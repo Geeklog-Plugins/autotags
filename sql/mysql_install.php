@@ -51,7 +51,7 @@ CREATE TABLE {$_TABLES['autotags']} (
   perm_anon tinyint(1) unsigned NOT NULL default 2,
   
   PRIMARY KEY  (tag)
-) TYPE=MyISAM
+) ENGINE=MyISAM
 ";
 
 $DEFVALUES[] = "INSERT INTO {$_TABLES['autotags']} (tag, is_enabled, is_function, description, replacement) VALUES ('cipher', 0, 1, 'A simple substitution cipher. This is rot13: [cipher:nopqrstuvwxyzabcdefghijklm Text to encode]', NULL);";

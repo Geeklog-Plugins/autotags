@@ -231,7 +231,7 @@ function listautotags()
     $retval .= COM_startBlock($LANG_AUTO['autotagsmanager'], '',
                                                 COM_getBlockTemplate('_admin_block', 'header'));
     
-    $retval .= ADMIN_createMenu($menu_arr, $LANG_AUTO['autotagslist'] . $LANG_AUTO['instructions'], plugin_geticon_autotags());
+    $retval .= ADMIN_createMenu($menu_arr, $LANG_AUTO['list_all_title'] . $LANG_AUTO['instructions'], plugin_geticon_autotags());
 		
     $text_arr = array('has_extras'   => true,
                        'form_url' => $_CONF['site_admin_url'] . "/plugins/autotags/index.php");
@@ -468,7 +468,7 @@ if (($mode == $LANG_AUTO['delete']) && !empty ($LANG_AUTO['delete'])) {
         $display = COM_refresh ($_CONF['site_admin_url'] . '/index.php');
     }
 } else {
-    $display .= COM_siteHeader ('menu', $LANG_AUTO['autotagslist']);
+    $display .= COM_siteHeader ('menu', $LANG_AUTO['list_all_title']);
     $display .= listautotags();
     $display .= COM_siteFooter ();
 }
