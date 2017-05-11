@@ -1,0 +1,19 @@
+{# begin {templatelocation} #}
+
+<table width="90%">
+    <tr>
+        <td><b>{lang_autotag}</b></td><td><b>{lang_desc}</b></td>
+    </tr>
+
+    {autotag_rows}
+
+</table>
+
+<!-- BEGIN autotag_row -->
+<tr>
+    <td>{tag}</td>
+    <td>{descr}</td>
+</tr>
+<!-- END autotag_row -->
+
+{# end {templatelocation} #}

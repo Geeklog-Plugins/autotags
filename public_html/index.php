@@ -44,31 +44,44 @@ require_once ('../lib-common.php');
  */
 function list_all_tags()
 {
-    global $_CONF;
+    global $_CONF, $LANG_AUTO;
     
     $autotags = PLG_collectTags('permission');
     $plugins_tags = PLG_collectTags();
     ksort($autotags);
     $autotags = array_keys($autotags);
     $description = array_flip(PLG_collectTags('description'));
-
-    $display = '<TABLE WIDTH="90%"><TR><TD ALIGN="LEFT"><b>AutoTag</b></TD><TD ALIGN="LEFT"><b>Description</b></TD></TR>'."\n";
+    
+    $at_template = COM_newTemplate(CTL_plugin_templatePath('autotags'));        
+    $at_template->set_file('list', 'autotags_list.thtml');
+    
+    $blocks = array('autotag_row');
+    foreach ($blocks as $block) {
+        $at_template->set_block('list', $block);
+    }    
+    
+    $at_template->set_var('lang_autotag', $LANG_AUTO['autotag']);
+    $at_template->set_var('lang_desc', $LANG_AUTO['desc']);
+        
     foreach ($autotags as $tag) {
         if ($description[$tag] != '') {
             $descr = $description[$tag];
         } else { // Permissions and Description not supported
             $descr = "Part of the " . $plugins_tags[$tag] . " plugin";
         }
-        $display .= "<TR><TD>$tag</TD><TD>$descr</TD></TR>\n";
-    }
-    $display .= '</TABLE>';
+        
+        $at_template->set_var('tag', $tag);
+        $at_template->set_var('descr', $descr);
+        
+        $at_template->parse('autotag_rows', 'autotag_row', true);
+    }    
+    
+    $display = $at_template->parse('output','list');    
+        
     return $display;    
 }
 
-$mode = '';
-if (isset($_GET['mode'])) {
-    $mode = COM_applyFilter($_GET['mode']);
-}
+$mode = Geeklog\Input::fRequest('mode', '');
 
 $display = '';
 if ($mode == 'popup') {
@@ -80,10 +93,10 @@ if ($mode == 'popup') {
     $display .= list_all_tags();
     $display .= '</body></html>';
 } else {
-    $display .= COM_startBlock($LANG_AUTO['list_all_title']);
+    $display .= COM_startBlock($LANG_AUTO['list_of_autotags']);
     $display .= list_all_tags();
     $display .= COM_endBlock();
-    $display = COM_createHTMLDocument($display, array('pagetitle' => $LANG_AUTO['list_all_title']));
+    $display = COM_createHTMLDocument($display, array('pagetitle' => $LANG_AUTO['list_of_autotags']));
 }
 
 COM_output($display);

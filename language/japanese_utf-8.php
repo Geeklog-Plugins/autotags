@@ -28,6 +28,7 @@ $LANG_AUTO = array(
     'newpage' => '新規ページ',
     'adminhome' => '管理者HOME',
     'tag' => 'タグ名（英数字）',
+    'autotag' => 'Autotag',
     'desc' => 'タグの説明',
     'replacement' => '置換文字列',
     'enabled' => '有効:',
@@ -36,6 +37,7 @@ $LANG_AUTO = array(
     'short_function' => '関数',
     'autotagseditor' => '自動タグエディター',
     'autotagsmanager' => '自動タグマネージャ',
+    'list_of_autotags' => 'List of Autotags',
     'edit' => '編集',
     'save' => '保存',
     'delete' => '削除',
@@ -66,7 +68,6 @@ $LANG_AUTO = array(
     
     'usagepermissionskey' => 'U = 使用法',
     
-    'list_all_title' => '自動タグ一覧',
     'window_close' => 'クローズ',
     'main_menulabel' => '自動タグ一覧',
 );

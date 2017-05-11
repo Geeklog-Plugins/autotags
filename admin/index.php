@@ -57,24 +57,19 @@ if (!SEC_hasRights ('autotags.edit')) {
 */ 
 function form($A, $error = false) 
 {
-    global $_CONF, $LANG_AUTO, $_AUTO_CONF, $LANG_ACCESS, $MESSAGE, $_TABLES;
+    global $_CONF, $LANG_AUTO, $_AUTO_CONF, $LANG_ACCESS, $LANG_ADMIN, $MESSAGE, $_TABLES;
 
     $retval = '';
 
     if ($error) {
-        $retval .= $error . '<br><br>';
+        $retval .= $error;
     } else {
-        $template_path = autotags_templatePath ('admin');
-        $at_template = new Template ($template_path);
-
-        $at_template->set_file ('form', 'autotags.thtml');
-        $at_template->set_var('layout_url', $_CONF['layout_url']);
-        $at_template->set_var( 'xhtml', XHTML );
-        $at_template->set_var('site_url', $_CONF['site_url']);
-        $at_template->set_var('site_admin_url', $_CONF['site_admin_url']);
+        $at_template = COM_newTemplate(CTL_plugin_templatePath('autotags', 'admin'));        
+        $at_template->set_file('form', 'autotags.thtml');
+        
         $at_template->set_var('start_block_editor',
-                COM_startBlock($LANG_AUTO['autotagseditor']), '',
-                        COM_getBlockTemplate ('_admin_block', 'header'));
+            COM_startBlock($LANG_AUTO['autotagseditor']), '',
+            COM_getBlockTemplate ('_admin_block', 'header'));
 
         $at_template->set_var('lang_tag', $LANG_AUTO['tag']);
         $at_template->set_var('tag', $A['tag']);
@@ -107,14 +102,12 @@ function form($A, $error = false)
         $at_template->set_var('lang_function', $LANG_AUTO['function']);
         if (($_AUTO_CONF['allow_php'] == 1) && SEC_hasRights ('autotags.PHP'))
         {
-            $is_function_checkbox = '<td valign="top"><input type="checkbox" name="is_function"';
             if ($A['is_function'] == 'on') {$A['is_function'] = 1;} // just in case coming back from edit form and not db
             if ($A['is_function'] == 1) {
-                $is_function_checkbox .= ' checked="checked"';
+                $at_template->set_var('is_function_checked', 'checked="checked"');
             }
-            $is_function_checkbox .= '>&nbsp;&nbsp;</td>';
                     
-            $at_template->set_var('is_function_checkbox', $is_function_checkbox);
+            $at_template->set_var('is_function_checkbox', true);
             $at_template->set_var ('php_msg', $LANG_AUTO['php_msg_enabled']);
         }
         else
@@ -122,7 +115,6 @@ function form($A, $error = false)
             $at_template->set_var('is_function_checkbox', '');
             $at_template->set_var ('php_msg', $LANG_AUTO['php_msg_disabled']);
         }
-        
         
         // user access info
         $at_template->set_var('lang_accessrights', $LANG_ACCESS['accessrights']);
@@ -151,10 +143,16 @@ function form($A, $error = false)
         
         $at_template->set_var('lang_save', $LANG_AUTO['save']);
         $at_template->set_var('lang_cancel', $LANG_AUTO['cancel']);
-        $at_template->set_var('delete_option', '<input type="submit" value="' . $LANG_AUTO['delete'] . '" name="mode" onclick="return confirm(' . "'" .  $MESSAGE[76] . "'" .  ');">');        
+        
+        if (!empty($A['old_tag']) && ($access == 3) && !empty($A['owner_id'])) {
+            $at_template->set_var('allow_delete', true);
+            $at_template->set_var('lang_delete', $LANG_ADMIN['delete']);
+            $at_template->set_var('confirm_message', $MESSAGE[76]);
+            // Old delete option to support older themes
+            $at_template->set_var('delete_option', '<input type="submit" value="' . $LANG_AUTO['delete'] . '" name="mode" onclick="return confirm(' . "'" .  $MESSAGE[76] . "'" .  ');">');
+        }
 
-        $at_template->set_var('end_block',
-                COM_endBlock (COM_getBlockTemplate ('_admin_block', 'footer')));
+        $at_template->set_var('end_block', COM_endBlock(COM_getBlockTemplate ('_admin_block', 'footer')));
         $retval .= $at_template->parse('output','form');
     }
 
@@ -181,9 +179,7 @@ function autotags_SEC_getUsagePermissionsHTML($perm_owner, $perm_group, $perm_me
 
     $retval = '';
 
-    //$perm_templates = COM_newTemplate($_CONF['path_layout'] . 'admin/common');
-    $template_path = autotags_templatePath ('admin');
-    $perm_templates = COM_newTemplate($template_path);
+    $perm_templates = COM_newTemplate(CTL_plugin_templatePath('autotags', 'admin'));
     $perm_templates->set_file(array('editor' => 'usage_permissions.thtml'));
 
     $perm_templates->set_var('lang_owner', $LANG_ACCESS['owner']);

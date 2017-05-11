@@ -1,0 +1,64 @@
+{# begin {templatelocation} #}
+
+{start_block_editor}
+<form action="{site_admin_url}/plugins/autotags/index.php" method="post" id="autotags-autotageditor" class="compact uk-form">
+    <div class="admin_basic">
+        <dl class="form_block">
+            <dt><label for="autotags-autotageditor-tag">{lang_tag}</label></dt>
+            <dd><input type="text" name="tag" value="{tag}" maxlength="24" id="autotags-autotageditor-tag" class="size2"{xhtml}></dd>
+            
+            <dt><label for="autotags-autotageditor-tag">{lang_desc}</label></dt>
+            <dd><input type="text" name="description" value="{description}" maxlength="255" id="autotags-autotageditor-tag" class="size10"{xhtml}></dd>            
+
+            <dt><label for="autotags-autotageditor-enabled">{lang_enabled}</label></dt>
+            <dd class="controls_text"><input type="checkbox" name="is_enabled" id="autotags-autotageditor-enabled" {is_enabled_checked}{xhtml}></dd>
+
+            <dt><label for="autotags-autotageditor-close-tag">{lang_close_tag}</label></dt>
+            <dd class="controls_text"><input type="checkbox" name="close_tag" id="autotags-autotageditor-close-tag" {close_tag_checked}{xhtml}></dd>
+            
+            <dt><label for="autotags-autotageditor-function">{lang_function}</label></dt>
+            <dd class="controls_text">
+                {!if is_function_checkbox}
+                <input type="checkbox" name="is_function" id="autotags-autotageditor-function" {is_function_checked}{xhtml}>
+                {!endif}
+                {php_msg}
+            </dd>
+            
+            <dt><label for="autotags-autotageditor-replacement">{lang_replacement}</label></dt>
+            <dd>
+                <textarea name="replacement" rows="8" id="autotags-autotageditor-replacement" class="wide">{replacement}</textarea>
+                {lang_replace_explain}
+            </dd>
+        </dl>
+    
+        <fieldset>
+            <legend>{lang_accessrights}</legend>
+
+            <dl class="form_block">
+              <dt>{lang_owner}</dt>
+              <dd class="controls_text">{owner_name}<input type="hidden" name="owner_id" value="{owner_id}"{xhtml}></dd>
+
+              <dt><label for="group_id">{lang_group}</label></dt>
+              <dd>{group_dropdown}</dd>
+
+              <dt><label for="admin-permissions">{lang_permissions}</label></dt>
+              <dd>{permissions_editor}</dd>
+              <dd class="description">{lang_perm_key}</dd>
+              <dd class="description">{lang_permissions_msg}</dd>
+            </dl>
+        </fieldset>
+
+        <div class="submit">
+            <button type="submit" name="mode" value="{lang_save}" class="uk-button uk-button-primary">{lang_save}</button>
+            {!if allow_delete}
+            <button type="submit" name="mode" value="{lang_delete}" class="uk-button uk-button-danger" onclick="return confirm('{confirm_message}');">{lang_delete}</button>
+            {!endif}
+            <button type="submit" name="mode" value="{lang_cancel}" class="uk-button">{lang_cancel}</button>
+            <input type="hidden" name="old_tag" value="{old_tag}"{xhtml}>
+        </div>    
+    
+    </div>    
+</form>
+{end_block}
+
+{# end {templatelocation} #}

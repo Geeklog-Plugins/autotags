@@ -27,6 +27,7 @@ $LANG_AUTO = array(
     'newpage' => 'New Page',
     'adminhome' => 'Admin Home',
     'tag' => 'Tag',
+    'autotag' => 'Autotag',
     'desc' => 'Description',
     'replacement' => 'Replace With',
     'enabled' => 'Enabled?',
@@ -34,7 +35,8 @@ $LANG_AUTO = array(
     'function' => 'Replace with PHP?',
     'short_function' => 'Is Function?',
     'autotagseditor' => 'Autotags Editor',
-		'autotagsmanager' => 'Autotags Manager',
+    'autotagsmanager' => 'Autotags Manager',
+    'list_of_autotags' => 'List of Autotags',
     'edit' => 'Edit',
     'save' => 'save',
     'delete' => 'delete',
@@ -44,7 +46,8 @@ $LANG_AUTO = array(
     'access_denied_msg' => 'You are illegally trying access one of the Autotags administration pages.  Please note that all attempts to illegally access this page are logged',
     'deny_msg' => 'Access to this page is denied.  Either the page has been moved/removed or you do not have sufficient permissions.',
 
-    'php_msg_enabled' => 'If you just check the PHP checkbox, when this tag is encountered the function named with the tag\'s name prefixed with phpautotags_ will be called to translate the tag.<br><br>If the PHP checkbox is checked and the    <b>Replace With</b> contains text then the text will be evaluated as PHP. To access the first parameter reference the $p1 variable and for the second parameter you would reference $p2 in your PHP script. The variable $tagstr will contain the entire string. Use return in your PHP script to return the text you want to replace the autotag with.',
+    'php_msg_enabled' => '<p>If you just check the PHP checkbox, when this tag is encountered the function named with the tag\'s name prefixed with phpautotags_ will be called to translate the tag.</p>
+        <p>If the PHP checkbox is checked and the  <b>Replace With</b> contains text then the text will be evaluated as PHP. To access the first parameter reference the $p1 variable, for the second parameter you would reference $p2, and for the third parameter you would reference $p3 in your PHP script. The variable $tagstr will contain the entire string. Use return in your PHP script to return the text you want to replace the autotag with.',
     'php_msg_disabled' => 'You must set the Allow PHP configuration setting to true in the Geeklog Configuration panel and be in a group with the autotags.PHP feature in order to modify autotags that call a function to translate the tag.',
     
     'disallowed_tag' => 'The tag you have chosen is restricted and not available for use. Choose another tag.',
@@ -75,7 +78,6 @@ $LANG_AUTO = array(
     
     'usagepermissionskey' => 'U = usage',
     
-    'list_all_title' => 'List of Auto Tags',
     'window_close' => 'Close',
     'main_menulabel' => 'Autotag List'
 );

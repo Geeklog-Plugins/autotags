@@ -1,0 +1,23 @@
+{# begin {templatelocation} #}
+
+<table id="admin-permissions" class="uk-table">
+  <thead>
+    <tr>
+      <th>{lang_owner}</th>
+      <th>{lang_group}</th>
+      <th>{lang_members}</th>
+      <th>{lang_anonymous}</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td><label for="permissions-or">U</label><br{xhtml}><input type="checkbox" id="permissions-or" name="perm_owner[]" value="2"{owner_r_checked}{xhtml}></td>
+      <td><label for="permissions-gr">U</label><br{xhtml}><input type="checkbox" id="permissions-gr" name="perm_group[]" value="2"{group_r_checked}{xhtml}></td>
+      <td><label for="permissions-mr">U</label><br{xhtml}><input type="checkbox" id="permissions-mr" name="perm_members[]" value="2"{members_checked}{xhtml}></td>
+      <td><label for="permissions-ar">U</label><br{xhtml}><input type="checkbox" id="permissions-ar" name="perm_anon[]" value="2"{anon_checked}{xhtml}></td>
+    </tr>
+  </tbody>
+</table>
+
+{# end {templatelocation} #}

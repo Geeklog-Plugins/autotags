@@ -444,34 +444,6 @@ function plugin_autotags_autotags ($op, $content = '', $autotag = '')
     }
 }
 
-/**
-* Get path for the template files.
-*
-* @param    string  $path   subdirectory within the base template path
-* @return   string          full path to template directory
-*
-*/
-function autotags_templatePath ($path = '')
-{
-    global $_CONF;
-
-    if (empty ($path)) {
-        $layout_path = $_CONF['path_layout'] . 'autotags';
-    } else {
-        $layout_path = $_CONF['path_layout'] . 'autotags' . '/' . $path;
-    }
-
-    if (is_dir ($layout_path)) {
-        $retval = $layout_path;
-    } else {
-        $retval = $_CONF['path'] . 'plugins/autotags/templates';
-        if (!empty ($path)) {
-            $retval .= '/' . $path;
-        }
-    }
-
-    return $retval;
-}
 
 /*
  *  Sample function-based autotags. These functions are only available

@@ -1,0 +1,59 @@
+{start_block_editor}
+<form action="{site_admin_url}/plugins/autotags/index.php" method="post">
+    <table border="0" cellspacing="0" cellpadding="3" width="100%">
+      <tr>
+          <td align="right" valign="top" style="white-space:nowrap;">{lang_tag}:</td>
+          <td><input type="text" size="24" maxlength="24" name="tag" value="{tag}"></td>
+      </tr>
+      <tr>
+          <td align="right" valign="top" style="white-space:nowrap;">{lang_desc}:</td>
+          <td><input type="text" name="description" size="75" maxlength="255" value="{description}"></td>
+      </tr>
+      <tr>
+          <td align="right" valign="top" style="white-space:nowrap;">{lang_enabled}</td>
+          <td><input type="checkbox" name="is_enabled" {is_enabled_checked}></td>
+      </tr>
+      <tr>
+          <td align="right" valign="top" style="white-space:nowrap;">{lang_close_tag}</td>
+          <td><input type="checkbox" name="close_tag" {close_tag_checked}></td>
+      </tr>
+      
+      <tr>
+          <td align="right" valign="top" style="white-space:nowrap;">{lang_function}</td>
+          <td>
+            <table border="0">
+                <tr>
+                    {!if is_function_checkbox}
+                    <td valign="top"><input type="checkbox" name="is_function" {is_function_checked}{xhtml}>&nbsp;&nbsp;</td>
+                    {!endif}          
+                    <td>{php_msg}</td>
+                </tr>
+            </table>
+          </td>
+      </tr>
+      <tr>
+          <td align="right" valign="top" style="white-space:nowrap;">{lang_replacement}:</td>
+          <td>
+              <textarea name="replacement" style="width:100%" rows="8" wrap="virtual">{replacement}</textarea>
+              {lang_replace_explain}
+          </td>
+      </tr>
+      <tr><td>&nbsp;</td></tr>
+    </table>
+
+    <hr{xhtml}>
+    <h2>{lang_accessrights}</h2>
+    <p>{lang_owner}: {owner_name}<input type="hidden" name="owner_id" value="{owner_id}"{xhtml}></p>
+    <p>{lang_group}: {group_dropdown}</p>
+    <h2>{lang_permissions}</h2>
+    <p>{lang_perm_key}</p>
+    <div>{permissions_editor}</div>
+    <p>{lang_permissions_msg}</p>
+    <p>      
+    <input type="submit" value="{lang_save}" name="mode"> 
+    <input type="submit" value="{lang_cancel}" name="mode"> 
+    {delete_option}
+    <input type="hidden" name="old_tag" value="{old_tag}">      
+    </p>
+</form>
+{end_block}

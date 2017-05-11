@@ -1,0 +1,21 @@
+{# begin {templatelocation} #}
+
+<table class="uk-table">
+    <thead>
+        <tr>
+            <th>{lang_autotag}</th><th>{lang_desc}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {autotag_rows}
+    </tbody>
+</table>
+
+<!-- BEGIN autotag_row -->
+<tr>
+    <td>{tag}</td>
+    <td>{descr}</td>
+</tr>
+<!-- END autotag_row -->
+
+{# end {templatelocation} #}
