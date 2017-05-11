@@ -197,6 +197,13 @@ function plugin_upgrade_autotags()
             break;
             
         case '1.1.0':
+            if (isset($_UPDATES[$current_version])) {
+                $_SQL = $_UPDATES[$current_version];
+                foreach ($_SQL as $sql) {
+                    DB_query($sql);
+                }
+            }
+            
             $current_version = '1.1.1';
             break;            
 

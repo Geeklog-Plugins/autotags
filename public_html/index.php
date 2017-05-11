@@ -80,13 +80,12 @@ if ($mode == 'popup') {
     $display .= list_all_tags();
     $display .= '</body></html>';
 } else {
-    $display .= COM_siteHeader('menu', $LANG_AUTO['list_all_title']);
     $display .= COM_startBlock($LANG_AUTO['list_all_title']);
     $display .= list_all_tags();
     $display .= COM_endBlock();
-    $display .= COM_siteFooter();
+    $display = COM_createHTMLDocument($display, array('pagetitle' => $LANG_AUTO['list_all_title']));
 }
 
-echo $display;
+COM_output($display);
 
 ?>
