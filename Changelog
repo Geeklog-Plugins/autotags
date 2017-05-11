@@ -1,23 +1,34 @@
+v1.1.1 2017-?-?
+- [Info] Now requires Geeklog v2.1.3
+- [Feature] Supports Autotags close tags
+- [Feature] Delete confirmation added
+- [Feature] Descriptions can now be longer (255 char)
+- [Feature] Now uses COM_createHTMLDocument
+- [Feature] Supports UTF8mb4 Character Set
+- [Feature] Added support for multiple themes
+- [Feature] Added templates for Denim theme
+- [Bug] Fixed filtering of descriptions so they don't get cut off
+- [Bug] Fixed autotag list available to all users 
+
 v1.1.0 2011-06-01
-    - Feature: Updated autotag descriptions which are now used with Geeklog 1.8.0
-    - Feature: Added autotag usage permissions
-    - Feature: Added the ability to use PHP directly in the "Replace With" box
-    - Feature: Updated install and upgrade process (now can be autoinstalled)
-    - Feature: Uses Geeklog Configuration system
-    - Bugfix: Fixed autotag admin list in IE 8
-    - Bugfix: Fixed autotag list available to all users 
+- [Feature] Updated autotag descriptions which are now used with Geeklog 1.8.0
+- [Feature] Added autotag usage permissions
+- [Feature] Added the ability to use PHP directly in the "Replace With" box
+- [Feature] Updated install and upgrade process (now can be autoinstalled)
+- [Feature] Uses Geeklog Configuration system
+- [Bug] Fixed autotag admin list in IE 8
+- [Bug] Fixed autotag list available to all users 
 
 v1.02 2008-09-24
-    - Bugfix: phpautotags_topic() staticpage fix
-    - Bugfix: Clean input better when saving autotag
-    - Bugfix: Admin menus to work in Geeklog 1.5
+- [Bug] phpautotags_topic() staticpage fix
+- [Bug] Clean input better when saving autotag
+- [Bug] Admin menus to work in Geeklog 1.5
     
 v1.01 2007-03-08
-    - Bugfix: plugin_getListField_autotags() failed to allow php autotags to
-      be checked
-    - Bugfix: stripslashes in plugin_autotags_autotags()
-    - Feature: Added lang autotag
+- [Bug] plugin_getListField_autotags() failed to allow php autotags to be checked
+- [Bug] stripslashes in plugin_autotags_autotags()
+- [Feature] Added lang autotag
 
 v1.0  2006-11-26
-    - First public release
+- First public release
 
