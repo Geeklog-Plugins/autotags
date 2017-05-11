@@ -31,6 +31,7 @@ $LANG_AUTO = array(
     'desc' => 'タグの説明',
     'replacement' => '置換文字列',
     'enabled' => '有効:',
+    'close_tag' => 'Requires Close Tag?',
     'function' => 'PHPで置換:',
     'short_function' => '関数',
     'autotagseditor' => '自動タグエディター',

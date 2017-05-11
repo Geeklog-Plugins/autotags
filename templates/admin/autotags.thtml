@@ -14,6 +14,11 @@
               <td><input type="checkbox" name="is_enabled" {is_enabled_checked}></td>
           </tr>
           <tr>
+              <td align="right" valign="top" style="white-space:nowrap;">{lang_close_tag}</td>
+              <td><input type="checkbox" name="close_tag" {close_tag_checked}></td>
+          </tr>
+          
+          <tr>
               <td align="right" valign="top" style="white-space:nowrap;">{lang_function}</td>
               <td><table border="0"><tr>{is_function_checkbox}<td>{php_msg}</td></tr></table></td>
           </tr>

@@ -198,7 +198,7 @@ function plugin_upgrade_autotags()
             
         case '1.1.0':
             $current_version = '1.1.1';
-            break;
+            break;            
 
         default:
             $done = true;
@@ -365,6 +365,16 @@ function plugin_autotags_autotags ($op, $content = '', $autotag = '')
         if (is_array($tagname)) {
             return $tagname;
         }
+    } elseif ($op == 'closetag') {
+        foreach ($_AUTOTAGS as $tag) {
+            if ($tag['close_tag']) {
+                $closetag[] = $tag['tag']; 
+            }
+        }
+        
+        if (is_array($closetag)) {
+            return $closetag;
+        }          
     } elseif ($op == 'description') {
         foreach ($_AUTOTAGS as $tag) {
             $autotag_desc[$tag['tag']] = $tag['description'];
@@ -374,8 +384,12 @@ function plugin_autotags_autotags ($op, $content = '', $autotag = '')
             return $autotag_desc;
         }        
     } else if ($op == 'parse') {
+        // [tag:parameter1 And the rest here is parameter2]This is parameter3 if exist.[/tag]
         $p1 = $autotag['parm1'];
         $p2 = $autotag['parm2'];
+        if (isset($autotag['parm3'])) {
+            $p3 = $autotag['parm3'];
+        }
         
         if (empty($p2)) $p2 = $p1;
         
@@ -394,6 +408,9 @@ function plugin_autotags_autotags ($op, $content = '', $autotag = '')
                 } else {
                     $evalstring = '$p1 = "' . $p1 . '";';
                     $evalstring .= '$p2 = "' . $p2 . '";';
+                    if (isset($p3)) {
+                        $evalstring .= '$p3 = "' . $p3 . '";';
+                    }
                     $evalstring .= '$tagstr = "' . $tagstr . '";';
                     $evalstring .= $record['replacement'];
                     $replace = eval($evalstring);
@@ -402,12 +419,18 @@ function plugin_autotags_autotags ($op, $content = '', $autotag = '')
             } else {
                 $p0 = substr($autotag['tagstr'], strlen($autotag['tag']) + 2);
                 $p0 = substr($p0, 0, strlen($p0)-1);
-                $replace = Array('#U', '#1', '#2', '#0');
-                $with = Array($_CONF['site_url'], $p1, $p2, $p0);
                 
-                $subject = $record['replacement'];
+                if (isset($p3)) {
+                    $replace = Array('#U', '#1', '#2', '#0', '#3');
+                    $with = Array($_CONF['site_url'], $p1, $p2, $p0, $p3);
+                } else {
+                    $replace = Array('#U', '#1', '#2', '#0');
+                    $with = Array($_CONF['site_url'], $p1, $p2, $p0);
+                }
+                
+                $subject = $record['replacement']; 
                 $subject = str_replace($replace, $with, $subject);
-                $content = str_replace($autotag['tagstr'], $subject, $content);
+                $content = str_replace($autotag['tagstr'], $subject, $content, $count);
             }
         }
         return $content;

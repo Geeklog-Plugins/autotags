@@ -61,7 +61,7 @@ if (!SEC_hasRights ('autotags.edit')) {
 */ 
 function form ($A, $error = false) 
 {
-    global $_CONF, $LANG_AUTO, $_AUTO_CONF, $LANG_ACCESS, $_TABLES;
+    global $_CONF, $LANG_AUTO, $_AUTO_CONF, $LANG_ACCESS, $MESSAGE, $_TABLES;
 
     $retval = '';
 
@@ -88,11 +88,19 @@ function form ($A, $error = false)
         $at_template->set_var('description', $A['description']);
 
         $at_template->set_var('lang_enabled', $LANG_AUTO['enabled']);
-        if ($A['is_enabled'] == 1)
+        if ($A['is_enabled'] == 1) {
             $at_template->set_var('is_enabled_checked', 'checked="checked"');
-        else
+        } else {
             $at_template->set_var('is_enabled_checked', '');
-
+        }
+        
+        $at_template->set_var('lang_close_tag', $LANG_AUTO['close_tag']);
+        if ($A['close_tag'] == 1) {
+            $at_template->set_var('close_tag_checked', 'checked="checked"');
+        } else {
+            $at_template->set_var('close_tag_checked', '');
+        }
+        
         $at_template->set_var('lang_replacement', $LANG_AUTO['replacement']);
         $at_template->set_var('replacement', $A['replacement']);
         $at_template->set_var('lang_replace_explain', $LANG_AUTO['replace_explain']);
@@ -137,10 +145,9 @@ function form ($A, $error = false)
         $at_template->set_var('permissions_editor', autotags_SEC_getUsagePermissionsHTML($A['perm_owner'],$A['perm_group'],$A['perm_members'],$A['perm_anon']));
         $at_template->set_var('lang_permissions_msg', $LANG_ACCESS['permmsg']);
         
-        
         $at_template->set_var('lang_save', $LANG_AUTO['save']);
         $at_template->set_var('lang_cancel', $LANG_AUTO['cancel']);
-        $at_template->set_var('delete_option', '<input type="submit" value="' . $LANG_AUTO['delete'] . '" name="mode">');        
+        $at_template->set_var('delete_option', '<input type="submit" value="' . $LANG_AUTO['delete'] . '" name="mode" onclick="return confirm(' . "'" .  $MESSAGE[76] . "'" .  ');">');        
 
         $at_template->set_var('end_block',
                 COM_endBlock (COM_getBlockTemplate ('_admin_block', 'footer')));
@@ -274,6 +281,7 @@ function autotagseditor ($tag, $mode = '')
         $A['tag'] = '';
         $A['old_tag'] = '';
         $A['is_enabled'] = '0';
+        $A['close_tag'] = '0';
         $A['owner_id'] = $_USER['uid'];
         if (isset ($_GROUPS['Autotags Admin'])) {
             $A['group_id'] = $_GROUPS['Autotags Admin'];
@@ -292,7 +300,7 @@ function autotagseditor ($tag, $mode = '')
 * Saves a Auto Tag to the database
 *
 */
-function saveautotags ($tag, $old_tag, $description, $is_enabled, $is_function, $replacement, $owner_id, $group_id, $perm_owner, $perm_group, $perm_members, $perm_anon)
+function saveautotags ($tag, $old_tag, $description, $is_enabled, $is_function, $close_tag, $replacement, $owner_id, $group_id, $perm_owner, $perm_group, $perm_members, $perm_anon)
 {
     global $_CONF, $LANG_AUTO, $_AUTO_CONF, $_TABLES;
     
@@ -317,6 +325,8 @@ function saveautotags ($tag, $old_tag, $description, $is_enabled, $is_function, 
     }
 
     $is_function = ($is_function == 'on') ? 1 : 0;
+    
+    $close_tag = ($close_tag == 'on') ? 1 : 0;
 
     // If user does not have php edit perms, then set php flag to 0.
     if (($_AUTO_CONF['allow_php'] != 1) || !SEC_hasRights ('autotags.PHP')) {
@@ -347,7 +357,7 @@ function saveautotags ($tag, $old_tag, $description, $is_enabled, $is_function, 
         $description = addslashes($description);
         $replacement = addslashes($replacement);
 
-        DB_save($_TABLES['autotags'], 'tag,description,is_enabled,is_function,replacement,owner_id,group_id,perm_owner,perm_group,perm_members,perm_anon', "'$tag','$description',$is_enabled,$is_function,'$replacement',$owner_id,$group_id,$perm_owner,$perm_group,$perm_members,$perm_anon");
+        DB_save($_TABLES['autotags'], 'tag,description,is_enabled,is_function,close_tag,replacement,owner_id,group_id,perm_owner,perm_group,perm_members,perm_anon', "'$tag','$description',$is_enabled,$is_function,$close_tag,'$replacement',$owner_id,$group_id,$perm_owner,$perm_group,$perm_members,$perm_anon");
         if ($delete_old_page && !empty ($old_tag)) {
             DB_delete($_TABLES['autotags'], 'tag', $old_tag);
         }
@@ -459,6 +469,7 @@ if (($mode == $LANG_AUTO['delete']) && !empty ($LANG_AUTO['delete'])) {
             COM_applyFilter($_POST['description']),
             COM_applyFilter($_POST['is_enabled']),
             COM_applyFilter($_POST['is_function']),
+            COM_applyFilter($_POST['close_tag']),
             COM_stripslashes($_POST['replacement']),
             COM_applyFilter ($_POST['owner_id'], true),
             COM_applyFilter ($_POST['group_id'], true),

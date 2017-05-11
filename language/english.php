@@ -30,6 +30,7 @@ $LANG_AUTO = array(
     'desc' => 'Description',
     'replacement' => 'Replace With',
     'enabled' => 'Enabled?',
+    'close_tag' => 'Requires Close Tag?',
     'function' => 'Replace with PHP?',
     'short_function' => 'Is Function?',
     'autotagseditor' => 'Autotags Editor',
@@ -43,18 +44,28 @@ $LANG_AUTO = array(
     'access_denied_msg' => 'You are illegally trying access one of the Autotags administration pages.  Please note that all attempts to illegally access this page are logged',
     'deny_msg' => 'Access to this page is denied.  Either the page has been moved/removed or you do not have sufficient permissions.',
 
-    'php_msg_enabled' => 'If you just check the PHP checkbox, when this tag is encountered the function named with the tag\'s name prefixed with phpautotags_ will be called to translate the tag.<br><br>If the PHP checkbox is checked and the <b>Replace With</b> contains text then the text will be evaluated as PHP. To access the first parameter reference the $p1 variable and for the second parameter you would reference $p2 in your PHP script. The variable $tagstr will contain the entire string. Use return in your PHP script to return the text you want to replace the autotag with.',
+    'php_msg_enabled' => 'If you just check the PHP checkbox, when this tag is encountered the function named with the tag\'s name prefixed with phpautotags_ will be called to translate the tag.<br><br>If the PHP checkbox is checked and the    <b>Replace With</b> contains text then the text will be evaluated as PHP. To access the first parameter reference the $p1 variable and for the second parameter you would reference $p2 in your PHP script. The variable $tagstr will contain the entire string. Use return in your PHP script to return the text you want to replace the autotag with.',
     'php_msg_disabled' => 'You must set the Allow PHP configuration setting to true in the Geeklog Configuration panel and be in a group with the autotags.PHP feature in order to modify autotags that call a function to translate the tag.',
     
     'disallowed_tag' => 'The tag you have chosen is restricted and not available for use. Choose another tag.',
     'duplicate_tag' => 'The tag you have chosen is already in use. Please choose another tag name or edit the existing tag.',
     'no_tag_or_replacement' => 'You must at least fill in the <b>Tag</b> and <b>Replace With</b> fields.',
 
-    'instructions' => 'To modify or delete an autotag, click on that tag\'s edit icon below. To create a new autotag, click on "Create New" above. <p>If there are tags you cannot edit or enable it is because these autotags are function based and you do not have access to the autotags.PHP feature or function based autotags are disabled in $_AUTO_CONF.<p>',
-    'replace_explain' => 'Autotags take the form <b>[tag:parameter1 And the rest here is parameter2]</b>. In the replace with field you can type any valid HTML. You can include parameter1 and/or parameter2 in your replacement string by putting #1 and/or #2 in the Replace With field.'
-                        .'<p>Autotags are commonly used to create links. A Replace With field of <b>&lt;a href="http://path.to.somewhere/#1"&gt;#2&lt;/a&gt;</b> when combined with this tag <b>[tag:foo This is a link]</b> will result in the string <b>&lt;a href="http://path.to.somewhere/foo"&gt;This is a link&lt;/a&gt;</b>'
-                        .'<p>In addition to #1 and #2, #0 is the entire string after the first colon. #U is the base url of the website.',
-
+    'instructions' => 'To modify or delete an autotag, click on that tag\'s edit icon below. To create a new autotag, click on "Create New" above. <p>If there are tags you cannot edit or enable it is because these autotags are function based and you do not have access to the autotags.PHP feature or function based autotags are disabled in $_AUTO_CONF.',
+    
+    'replace_explain' => '<p>Autotags can take either form:</p>
+        <ul>
+            <li><b>[tag:parameter1 And the rest here is parameter2]</b></li>
+            <li><b>[tag:parameter1 And the rest here is parameter2]This is parameter3 if exist.[/tag]</b></li>
+        </ul>
+        <p>In the replace with field you can type any valid HTML. You can include parameter1 and/or parameter2 and/or parameter3 (if it exists) in your replacement string by putting #1 and/or #2 and/or #3 in the Replace With field.</p>
+        <p>In addition to #1, #2 and #3, #0 is the entire string after the first colon until the end of the tag (does not include #3). #U is the base url of the website.</p>
+        <p>Example 1: Autotags are commonly used to create links. A Replace With field of <b>&lt;a href="http://path.to.somewhere/#1"&gt;#2&lt;/a&gt;</b> when combined with this tag <b>[tag:foo This is a link]</b> will result in the string <b>&lt;a href="http://path.to.somewhere/foo"&gt;This is a link&lt;/a&gt;</b></p>
+        
+        <p>Example 2 (with close tag): Autotags can be used to add HTML tags. A Replace With field of <b>&lt;#1&gt;#3&lt;/#1&gt;</b> when combined with this tag <b>[tag:h1]This is a Heading[/tag]</b> will result in the string <b>&lt;h1&gt;This is a Heading&lt;/h1&gt;</b></p>
+        
+        ',
+        
     'php_not_activated' => 'The use of PHP in Autotags is not activated. Please see the configuration.',
 
     'edit' => 'Edit',

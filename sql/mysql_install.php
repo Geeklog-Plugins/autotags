@@ -42,6 +42,7 @@ CREATE TABLE {$_TABLES['autotags']} (
   description varchar(255) default '',
   is_enabled tinyint(1) NOT NULL default 0,
   is_function tinyint(1) NOT NULL default 0,
+  close_tag tinyint(1) NOT NULL default 0,
   replacement text,
   owner_id mediumint(8) NOT NULL default 2,
   group_id mediumint(8) NOT NULL default 1,
@@ -57,6 +58,7 @@ CREATE TABLE {$_TABLES['autotags']} (
 $DEFVALUES[] = "INSERT INTO {$_TABLES['autotags']} (tag, is_enabled, is_function, description, replacement) VALUES ('cipher', 0, 1, 'A simple substitution cipher. This is rot13: [cipher:nopqrstuvwxyzabcdefghijklm Text to encode]', NULL);";
 $DEFVALUES[] = "INSERT INTO {$_TABLES['autotags']} (tag, is_enabled, is_function, description, replacement) VALUES ('topic', 0, 1, 'Provides a link to index.php with the specified topic: [topic:tid]', NULL);";
 $DEFVALUES[] = "INSERT INTO {$_TABLES['autotags']} (tag, is_enabled, is_function, description, replacement) VALUES ('lang', 0, 1, 'Provides access to the LANG family of variables', NULL);";
-$DEFVALUES[] = "INSERT INTO {$_TABLES['autotags']} (tag, is_enabled, is_function, description, replacement) VALUES ('youtube', 0, 0, 'Embeds a youtube.com video: [youtube:video_id]', '<object width=\"425\" height=\"350\"><param name=\"movie\" value=\"http://www.youtube.com/v/#1\"></param><param name=\"wmode\" value=\"transparent\"></param><embed src=\"http://www.youtube.com/v/#1\" type=\"application/x-shockwave-flash\" wmode=\"transparent\" width=\"425\" height=\"350\"></embed></object>');";
+$DEFVALUES[] = "INSERT INTO {$_TABLES['autotags']} (tag, is_enabled, is_function, close_tag, description, replacement) VALUES ('html', 0, 0, 1, 'Wraps text in specified HTML tags: [html:em]some text[/html]', '<#1>#3</#1>');";
+$DEFVALUES[] = "INSERT INTO {$_TABLES['autotags']} (tag, is_enabled, is_function, description, replacement) VALUES ('youtube', 0, 0, 'Embeds a youtube.com video: [youtube:video_id]', '<iframe width="560" height="315" src="https://www.youtube.com/embed/#1" frameborder="0" allowfullscreen></iframe>');";
 
 ?>
