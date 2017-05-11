@@ -26,7 +26,8 @@ $_UPDATES = array(
     
     '1.1.0' => array(
         "ALTER TABLE {$_TABLES['autotags']} CHANGE `description` `description` VARCHAR(255) NULL",
-        "ALTER TABLE {$_TABLES['autotags']} ADD `close_tag` tinyint(1) NOT NULL default 0 AFTER `is_function`"
+        "ALTER TABLE {$_TABLES['autotags']} ADD `close_tag` tinyint(1) NOT NULL default 0 AFTER `is_function`",
+        "UPDATE {$_TABLES['plugins']} SET pi_homepage = 'https://github.com/Geeklog-Plugins/autotags' WHERE pi_name = 'autotags'"
     )
     
 );

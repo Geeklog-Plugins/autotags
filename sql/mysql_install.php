@@ -59,6 +59,6 @@ $DEFVALUES[] = "INSERT INTO {$_TABLES['autotags']} (tag, is_enabled, is_function
 $DEFVALUES[] = "INSERT INTO {$_TABLES['autotags']} (tag, is_enabled, is_function, description, replacement) VALUES ('topic', 0, 1, 'Provides a link to index.php with the specified topic: [topic:tid]', NULL);";
 $DEFVALUES[] = "INSERT INTO {$_TABLES['autotags']} (tag, is_enabled, is_function, description, replacement) VALUES ('lang', 0, 1, 'Provides access to the LANG family of variables', NULL);";
 $DEFVALUES[] = "INSERT INTO {$_TABLES['autotags']} (tag, is_enabled, is_function, close_tag, description, replacement) VALUES ('html', 0, 0, 1, 'Wraps text in specified HTML tags: [html:em]some text[/html]', '<#1>#3</#1>');";
-$DEFVALUES[] = "INSERT INTO {$_TABLES['autotags']} (tag, is_enabled, is_function, description, replacement) VALUES ('youtube', 0, 0, 'Embeds a youtube.com video: [youtube:video_id]', '<iframe width="560" height="315" src="https://www.youtube.com/embed/#1" frameborder="0" allowfullscreen></iframe>');";
+$DEFVALUES[] = "INSERT INTO {$_TABLES['autotags']} (tag, is_enabled, is_function, description, replacement) VALUES ('youtube', 0, 0, 'Embeds a youtube.com video: [youtube:video_id]', '" . '<iframe width="560" height="315" src="https://www.youtube.com/embed/#1" frameborder="0" allowfullscreen></iframe>' . "');";
 
 ?>
