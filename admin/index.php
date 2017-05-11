@@ -437,15 +437,10 @@ function changeTagStatus($enabledtags, $visibletags)
 }
 
 // MAIN
-$mode = '';
-if (isset($_REQUEST['mode'])) {
-    $mode = COM_applyFilter ($_REQUEST['mode']);
-}
 
-$tag = '';
-if (isset($_REQUEST['tag'])) {
-    $tag = COM_applyFilter ($_REQUEST['tag']);
-}
+$mode = Geeklog\Input::fRequest('mode', '');
+
+$tag = Geeklog\Input::fRequest('tag', '');
 
 if (isset($_POST['tagenabler'])) {
     $enabledtags = array();
