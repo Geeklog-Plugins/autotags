@@ -416,7 +416,9 @@ function plugin_autotags_autotags ($op, $content = '', $autotag = '')
                     $evalstring = '$p1 = "' . $p1 . '";';
                     $evalstring .= '$p2 = "' . $p2 . '";';
                     if (isset($p3)) {
-                        $evalstring .= '$p3 = "' . $p3 . '";';
+                        // $p3 could have ' in it so addslashes to get variable in evaluate and then remove right after so doesn't change anything else
+                        $evalstring .= '$p3 = "' . addslashes($p3) . '";';
+                        $evalstring .= '$p3 = stripslashes($p3);';
                     }
                     $evalstring .= '$tagstr = "' . $tagstr . '";';
                     $evalstring .= $record['replacement'];
