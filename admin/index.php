@@ -342,6 +342,10 @@ function saveautotags ($tag, $old_tag, $description, $is_enabled, $is_function, 
         $display .= COM_errorLog($LANG_AUTO['disallowed_tag'], 2);
         $display .= autotagseditor('');
         $display = COM_createHTMLDocument($display, array('pagetitle' => $LANG_AUTO['autotagseditor']));
+    } elseif(preg_match('/[^A-Za-z0-9]/', $tag)) {
+        $display .= COM_errorLog($LANG_AUTO['invalid_tag'], 2);
+        $display .= autotagseditor('');
+        $display = COM_createHTMLDocument($display, array('pagetitle' => $LANG_AUTO['autotagseditor']));
     } elseif (!empty($tag) && (!empty($replacement) || $is_function == 1)) {
         if ($is_enabled == 'on') {
             $is_enabled = 1;

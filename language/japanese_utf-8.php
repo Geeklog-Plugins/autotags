@@ -53,6 +53,7 @@ $LANG_AUTO = array(
     'disallowed_tag' => '選択したタグは使えません。他を選んでください。',
     'duplicate_tag' => '選択したタグはすでに使用されています。他のタグを選ぶか、使用中のタグを編集してください。',
     'no_tag_or_replacement' => '<b>タグ</b>と<b>置換文字列</b>フィールドは必ず入力してください。',
+    'invalid_tag' => 'The tag must contain only alphanumeric characters (a-z, A-Z, 0-9).',
 
     'instructions' => '<p>自動タグの編集・削除は、タグの編集アイコンをクリックしてください。新規作成は、上の"新規作成"をクリックしてください。編集できないか、有効にできないタグがある場合は、それらは関数ベースのタグであり、あなたに autotags.PHP権限がないか、コンフィギュレーションで「PHPを許可する」を「いいえ」にしているため、関数ベースの自動タグが無効になっています。</p>',
     'replace_explain' => '自動タグの記述形式は <b>[tag:parameter1 parameter2]</b> です。<br' . XHTML . '>置換文字列フィールドにはHTMLを記述できます。<br' . XHTML . '>置換文字列フィールドの文字列中に <b>#1</b> や <b>#2</b> を記述することにより、<b>parameter1</b> や <b>parameter2</b> を含めることができます。</p>'
