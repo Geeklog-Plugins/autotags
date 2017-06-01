@@ -53,7 +53,7 @@ $LANG_AUTO = array(
     'disallowed_tag' => 'The tag you have chosen is restricted and not available for use. Choose another tag.',
     'duplicate_tag' => 'The tag you have chosen is already in use. Please choose another tag name or edit the existing tag.',
     'no_tag_or_replacement' => 'You must at least fill in the <b>Tag</b> and <b>Replace With</b> fields.',
-    'invalid_tag' => 'The tag must contain only alphanumeric characters (a-z, A-Z, 0-9).',
+    'invalid_tag' => 'The tag must contain only alphanumeric characters (a-z, A-Z, 0-9), dashes (-) or underscores (_).',
 
     'instructions' => 'To modify or delete an autotag, click on that tag\'s edit icon below. To create a new autotag, click on "Create New" above. <p>If there are tags you cannot edit or enable it is because these autotags are function based and you do not have access to the autotags.PHP feature or function based autotags are disabled in $_AUTO_CONF.',
     

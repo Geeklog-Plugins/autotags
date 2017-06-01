@@ -342,7 +342,7 @@ function saveautotags ($tag, $old_tag, $description, $is_enabled, $is_function, 
         $display .= COM_errorLog($LANG_AUTO['disallowed_tag'], 2);
         $display .= autotagseditor('');
         $display = COM_createHTMLDocument($display, array('pagetitle' => $LANG_AUTO['autotagseditor']));
-    } elseif(preg_match('/[^A-Za-z0-9]/', $tag)) {
+    } elseif(preg_match('/[^-_A-Za-z0-9]/', $tag)) {
         $display .= COM_errorLog($LANG_AUTO['invalid_tag'], 2);
         $display .= autotagseditor('');
         $display = COM_createHTMLDocument($display, array('pagetitle' => $LANG_AUTO['autotagseditor']));
