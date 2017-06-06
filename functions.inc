@@ -414,7 +414,9 @@ function plugin_autotags_autotags ($op, $content = '', $autotag = '')
                     }
                 } else {
                     $evalstring = '$p1 = "' . $p1 . '";';
-                    $evalstring .= '$p2 = "' . $p2 . '";';
+                    // $p2 could have ' or " in it so addslashes to get variable in evaluate and then remove right after so doesn't change anything else
+                    $evalstring .= '$p2 = "' . addslashes($p2) . '";';
+                    $evalstring .= '$p2 = stripslashes($p2);';
                     if (isset($p3)) {
                         // $p3 could have ' in it so addslashes to get variable in evaluate and then remove right after so doesn't change anything else
                         $evalstring .= '$p3 = "' . addslashes($p3) . '";';
