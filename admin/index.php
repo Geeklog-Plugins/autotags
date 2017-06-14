@@ -146,7 +146,7 @@ function form($A, $error = false)
         
         if (!empty($A['old_tag']) && ($access == 3) && !empty($A['owner_id'])) {
             $at_template->set_var('allow_delete', true);
-            $at_template->set_var('lang_delete', $LANG_ADMIN['delete']);
+            $at_template->set_var('lang_delete', $LANG_AUTO['delete']);
             $at_template->set_var('confirm_message', $MESSAGE[76]);
             // Old delete option to support older themes
             $at_template->set_var('delete_option', '<input type="submit" value="' . $LANG_AUTO['delete'] . '" name="mode" onclick="return confirm(' . "'" .  $MESSAGE[76] . "'" .  ');">');
@@ -453,7 +453,6 @@ if (isset($_POST['tagenabler'])) {
     }
     changeTagStatus($enabledtags, $visibletags);
 }
-
 
 if (($mode == $LANG_AUTO['delete']) && !empty ($LANG_AUTO['delete'])) {
     DB_delete ($_TABLES['autotags'], 'tag', $tag,
