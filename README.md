@@ -2,8 +2,7 @@
 
 * Current Maintainers: [Geeklog Community Members](https://github.com/orgs/Geeklog-Plugins/people)
 * Release Date: June 22, 2017
-
-**Requires minimum Geeklog version 2.1.3
+* Requires minimum Geeklog version 2.1.3
 
 * Features
 * Changelog
