@@ -4,12 +4,6 @@
 * Release Date: June 22, 2017
 * Requires minimum Geeklog version 2.1.3
 
-* Features
-* Changelog
-* Installing
-* Upgrading
-* Configuration
-
 ## Summary of features
 * Allows Admins to create autotags from the Geeklog Admin interface. 
 * Supports new closed tags feature of Geeklog 2.1.3
