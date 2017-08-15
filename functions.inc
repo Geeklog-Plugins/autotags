@@ -409,7 +409,13 @@ function plugin_autotags_autotags ($op, $content = '', $autotag = '')
                     $function = 'phpautotags_'.$autotag['tag'];
                     if (function_exists($function))
                     {
-                        $replace = $function($p1, $p2, $autotag['tagstr']);
+                        $reffunc = new ReflectionFunction($function); 
+                        if (isset($p3) && $reffunc->getNumberOfParameters() >= 4) { 
+                            $replace = $function($p1, $p2, $autotag['tagstr'], $p3); 
+                        } else { 
+                            $replace = $function($p1, $p2, $autotag['tagstr']); 
+                        } 
+
                         $content = str_replace($autotag['tagstr'], $replace, $content);
                     }
                 } else {
