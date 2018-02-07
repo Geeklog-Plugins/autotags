@@ -374,7 +374,7 @@ function plugin_autotags_autotags ($op, $content = '', $autotag = '')
             }
         }        
         
-        if (is_array($tagname)) {
+        if (isset($tagname) && is_array($tagname)) {
             return $tagname;
         }
     } elseif ($op == 'closetag') {
