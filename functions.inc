@@ -206,7 +206,12 @@ function plugin_upgrade_autotags()
             
             $current_version = '1.1.1';
             break;            
+            
+        case '1.1.1':
 
+            $current_version = '1.1.2';
+            break;            
+        
         default:
             $done = true;
         }
@@ -428,7 +433,8 @@ function plugin_autotags_autotags ($op, $content = '', $autotag = '')
                         $evalstring .= '$p3 = "' . addslashes($p3) . '";';
                         $evalstring .= '$p3 = stripslashes($p3);';
                     }
-                    $evalstring .= '$tagstr = "' . $tagstr . '";';
+                    $evalstring .= '$tagstr = "' . addslashes($autotag['tagstr']) . '";';
+                    $evalstring .= '$tagstr = stripslashes($tagstr);';
                     $evalstring .= $record['replacement'];
                     $replace = eval($evalstring);
                     $content = str_replace($autotag['tagstr'], $replace, $content);
