@@ -330,16 +330,23 @@ function plugin_getListField_autotags($fieldname, $fieldvalue, $A, $icon_arr) {
                 $retval = ($A['is_enabled'] == 1) ? $LANG_ACCESS['yes'] : $LANG_ACCESS['no'];
             } else {
                 $switch = ($A['is_enabled'] == 1) ? 'checked="checked"' : '';
-       
-                $tcc = COM_newTemplate($_CONF['path_layout'] . 'controls');
-                $tcc->set_file('common', 'common.thtml');
-                $tcc->set_block('common', 'type-checkbox'); 
-                $tcc->set_var('name', 'enabledtags[]');
-                $tcc->set_var('onclick', 'this.form.submit()');
-                $tcc->set_var('value', $A['tag']);
-                $tcc->set_var('checked', $switch);
-                $retval =  $tcc->finish($tcc->parse('common', 'type-checkbox'));                
-                $retval .= '<input type="hidden" name="visibletags[]" value="' . $A['tag'] . '"' . XHTML . '>';
+                if (COM_versionCompare(VERSION, '2.2.0', '<=')) {
+                    $tcc = COM_newTemplate($_CONF['path_layout'] . 'controls');
+                    $tcc->set_file('common', 'common.thtml');
+                    $tcc->set_block('common', 'type-checkbox'); 
+                    $tcc->set_var('name', 'enabledtags[]');
+                    $tcc->set_var('onclick', 'this.form.submit()');
+                    $tcc->set_var('value', $A['tag']);
+                    $tcc->set_var('checked', $switch);
+                    $retval =  $tcc->finish($tcc->parse('common', 'type-checkbox'));                
+                    $retval .= '<input type="hidden" name="visibletags[]" value="' . $A['tag'] . '"' . XHTML . '>';
+                } else {
+                    $retval = '<input type="checkbox" name="enabledtags[]" '
+                                . 'onclick="submit()" value="' . $A['tag'] . '"'
+                                . $switch . XHTML . '>'
+                                . '<input type="hidden" name="visibletags[]" value="'
+                                . $A['tag'] . '"' . XHTML . '>';
+                }
             }
             break;
         default:
