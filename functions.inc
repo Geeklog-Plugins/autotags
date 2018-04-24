@@ -331,14 +331,12 @@ function plugin_getListField_autotags($fieldname, $fieldvalue, $A, $icon_arr) {
             } else {
                 $switch = ($A['is_enabled'] == 1) ? 'checked="checked"' : '';
                 if (COM_versionCompare(VERSION, '2.2.0', '<=')) {
-                    $tcc = COM_newTemplate($_CONF['path_layout'] . 'controls');
-                    $tcc->set_file('common', 'common.thtml');
-                    $tcc->set_block('common', 'type-checkbox'); 
-                    $tcc->set_var('name', 'enabledtags[]');
-                    $tcc->set_var('onclick', 'this.form.submit()');
-                    $tcc->set_var('value', $A['tag']);
-                    $tcc->set_var('checked', $switch);
-                    $retval =  $tcc->finish($tcc->parse('common', 'type-checkbox'));                
+                    $retval = COM_createControl('type-checkbox', array(
+                        'name' => 'enabledtags[]',
+                        'onclick' => 'this.form.submit()',
+                        'value' => $A['tag'],
+                        'checked' => $switch
+                    ));                    
                     $retval .= '<input type="hidden" name="visibletags[]" value="' . $A['tag'] . '"' . XHTML . '>';
                 } else {
                     $retval = '<input type="checkbox" name="enabledtags[]" '
