@@ -330,7 +330,7 @@ function plugin_getListField_autotags($fieldname, $fieldvalue, $A, $icon_arr) {
                 $retval = ($A['is_enabled'] == 1) ? $LANG_ACCESS['yes'] : $LANG_ACCESS['no'];
             } else {
                 $switch = ($A['is_enabled'] == 1) ? 'checked="checked"' : '';
-                if (COM_versionCompare(VERSION, '2.2.0', '<=')) {
+                if (COM_versionCompare(VERSION, '2.2.0', '>=')) {
                     $retval = COM_createControl('type-checkbox', array(
                         'name' => 'enabledtags[]',
                         'onclick' => 'this.form.submit()',
