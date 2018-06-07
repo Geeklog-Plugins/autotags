@@ -1,3 +1,11 @@
+v1.1.2 2017-6-7
+- [Info]Supports Geeklog v2.2.0
+- [Feature] Support template files for different themes
+- [Bug] Fixed upgrade issue and version check
+- [Bug] Fixed undefined PHP errors
+- [Bug] Removed hardcoded HTML
+- [Bug] Fixed Closed tags issue when autotag is being replaced with a PHP function
+
 v1.1.1 2017-6-22
 - [Info] Now requires Geeklog v2.1.3
 - [Feature] Supports Autotags close tags
@@ -31,4 +39,3 @@ v1.01 2007-03-08
 
 v1.0  2006-11-26
 - First public release
-
