@@ -1,3 +1,9 @@
+# Geeklog Autotags plugin - version 1.1.2
+
+* Current Maintainers: [Geeklog Community Members](https://github.com/orgs/Geeklog-Plugins/people)
+* Release Date: June 7, 2018
+* Requires minimum Geeklog version 2.1.3 (supports Geeklog v2.2.0)
+
 # Geeklog Autotags plugin - version 1.1.1
 
 * Current Maintainers: [Geeklog Community Members](https://github.com/orgs/Geeklog-Plugins/people)
