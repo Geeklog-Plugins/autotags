@@ -210,7 +210,12 @@ function plugin_upgrade_autotags()
         case '1.1.1':
 
             $current_version = '1.1.2';
-            break;            
+            break;      
+
+        case '1.1.2':
+
+            $current_version = '1.1.3';
+            break;              
         
         default:
             $done = true;
@@ -387,12 +392,12 @@ function plugin_autotags_autotags ($op, $content = '', $autotag = '')
         }
     } elseif ($op == 'closetag') {
         foreach ($_AUTOTAGS as $tag) {
-            if ($tag['close_tag']) {
+            if (isset($tag['close_tag']) && $tag['close_tag']) {
                 $closetag[] = $tag['tag']; 
             }
         }
         
-        if (is_array($closetag)) {
+        if (isset($closetag) && is_array($closetag)) {
             return $closetag;
         }          
     } elseif ($op == 'description') {
