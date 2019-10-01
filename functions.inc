@@ -401,11 +401,13 @@ function plugin_autotags_autotags ($op, $content = '', $autotag = '')
             return $closetag;
         }          
     } elseif ($op == 'description') {
+		$autotag_desc = array();
+		
         foreach ($_AUTOTAGS as $tag) {
             $autotag_desc[$tag['tag']] = $tag['description'];
         }
         
-        if (is_array($autotag_desc)) {
+        if (count($autotag_desc) > 0) {
             return $autotag_desc;
         }        
     } else if ($op == 'parse') {

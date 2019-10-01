@@ -102,11 +102,13 @@ function form($A, $error = false)
         $at_template->set_var('lang_function', $LANG_AUTO['function']);
         if (($_AUTO_CONF['allow_php'] == 1) && SEC_hasRights ('autotags.PHP'))
         {
-            if ($A['is_function'] == 'on') {$A['is_function'] = 1;} // just in case coming back from edit form and not db
-            if ($A['is_function'] == 1) {
-                $at_template->set_var('is_function_checked', 'checked="checked"');
+            if (isset($A['is_function'])) {
+                if ($A['is_function'] == 'on') {$A['is_function'] = 1;} // just in case coming back from edit form and not db
+                if ($A['is_function'] == 1) {
+                    $at_template->set_var('is_function_checked', 'checked="checked"');
+                }
             }
-                    
+
             $at_template->set_var('is_function_checkbox', true);
             $at_template->set_var ('php_msg', $LANG_AUTO['php_msg_enabled']);
         }
