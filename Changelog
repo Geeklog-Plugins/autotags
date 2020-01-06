@@ -1,5 +1,10 @@
+v1.1.3 2020-1-?
+- [Info] Supports Geeklog v2.2.1
+- [Improvement] Supports PHP v7.3
+- [Feature] Replace with PHP autotags supports extended functionality of PLG_replaceTags (will include plugin and id of item that the autotag is embedded in)
+
 v1.1.2 2017-6-7
-- [Info]Supports Geeklog v2.2.0
+- [Info] Supports Geeklog v2.2.0
 - [Feature] Support template files for different themes
 - [Bug] Fixed upgrade issue and version check
 - [Bug] Fixed undefined PHP errors

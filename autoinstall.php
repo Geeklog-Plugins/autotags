@@ -23,7 +23,7 @@ function plugin_autoinstall_autotags($pi_name)
         'pi_name'         => $pi_name,
         'pi_display_name' => $pi_display_name,
         'pi_version'      => '1.1.3',
-        'pi_gl_version'   => '2.1.3',
+        'pi_gl_version'   => '2.2.1', // Supports extended functionality of PLG_replaceTags
         'pi_homepage'     => 'https://github.com/Geeklog-Plugins/autotags'
     );
 
@@ -33,28 +33,28 @@ function plugin_autoinstall_autotags($pi_name)
 
     $features = array(
         $pi_name . '.edit'      => 'Access to ' . $pi_name . ' editor',
-        $pi_name . '.PHP'       => 'Ability to create Autotags which use a PHP function', 
+        $pi_name . '.PHP'       => 'Ability to create Autotags which use a PHP function',
         'config.' . $pi_name . '.tab_main'                  => 'Access to configure general autotag settings',
-        'config.' . $pi_name . '.tab_autotag_permissions'   => 'Access to configure default autotag usage permissions'        
+        'config.' . $pi_name . '.tab_autotag_permissions'   => 'Access to configure default autotag usage permissions'
     );
 
     $mappings = array(
         $pi_name . '.edit'      => array($pi_admin),
         'config.' . $pi_name . '.tab_main'                  => array($pi_admin),
-        'config.' . $pi_name . '.tab_autotag_permissions'   => array($pi_admin)        
+        'config.' . $pi_name . '.tab_autotag_permissions'   => array($pi_admin)
     );
 
     $tables = array(
         'autotags'
     );
-    
+
     $requires = array(
         array(
                'db' => 'mysql',
                'version' => '4.1'
              )
     );
-    
+
 
     $inst_parms = array(
         'info'      => $info,
