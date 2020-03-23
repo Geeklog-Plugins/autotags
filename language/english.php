@@ -42,6 +42,8 @@ $LANG_AUTO = array(
     'delete' => 'delete',
     'cancel' => 'cancel',
 
+    'save_success' => 'Your autotag was saved successfully.',
+
     'access_denied' => 'Access Denied',
     'access_denied_msg' => 'You are illegally trying access one of the Autotags administration pages.  Please note that all attempts to illegally access this page are logged',
     'deny_msg' => 'Access to this page is denied.  Either the page has been moved/removed or you do not have sufficient permissions.',

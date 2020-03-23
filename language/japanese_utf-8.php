@@ -42,14 +42,16 @@ $LANG_AUTO = array(
     'save' => '保存',
     'delete' => '削除',
     'cancel' => 'キャンセル',
-    
+
+    'save_success' => 'Your autotag was saved successfully.',
+
     'access_denied' => 'アクセスが拒否されました。',
     'access_denied_msg' => '自動タグプラグインの管理者用ページに不正にアクセスしています。このアクセスは記録されますので、ご了承ください。',
     'deny_msg' => 'このページへのアクセスが拒否されました。ページが削除あるいはリネームされたのかも知れませんし、またはアクセス権がないのかもしれません。',
 
     'php_msg_enabled' => 'これをチェックすると、＜phpautotags_タグ名＞という名前の関数が呼び出されて、タグを置換します。PHPにチェックを入れ、<b>置換文字列</b>を指定すると、PHPのコードとして評価されます。コード内では、$p1に第1引数、$p2に第2引数、$tagstrにタグ全体が代入されます。自動タグと置換する文字列を返すにはreturn文を使います。',
     'php_msg_disabled' => 'タグを置換するための関数を呼び出す自動タグを編集するには、コンフィギュレーションで「PHPを許可する」を「はい」にし、さらに autotags.PHP権限をグループに与える必要があります。',
-    
+
     'disallowed_tag' => '選択したタグは使えません。他を選んでください。',
     'duplicate_tag' => '選択したタグはすでに使用されています。他のタグを選ぶか、使用中のタグを編集してください。',
     'no_tag_or_replacement' => '<b>タグ</b>と<b>置換文字列</b>フィールドは必ず入力してください。',
@@ -66,9 +68,9 @@ $LANG_AUTO = array(
 
     'search' => '検索',
     'submit' => '投稿',
-    
+
     'usagepermissionskey' => 'U = 使用法',
-    
+
     'window_close' => 'クローズ',
     'main_menulabel' => '自動タグ一覧',
 );

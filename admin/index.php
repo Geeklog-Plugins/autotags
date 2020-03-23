@@ -416,6 +416,9 @@ function saveautotags ($tag, $old_tag, $description, $is_enabled, $is_function, 
         if ($delete_old_page && !empty ($old_tag)) {
             DB_delete($_TABLES['autotags'], 'tag', $old_tag);
         }
+
+        COM_setSystemMessage($LANG_AUTO['save_success'], $LANG_AUTO['autotagseditor']);
+
         $display = COM_redirect($_CONF['site_admin_url']
                           . '/plugins/autotags/index.php');
     } else {
