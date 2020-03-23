@@ -75,6 +75,7 @@ if (!isset($_AUTO_CONF['link_in_menu'])) {
 /**
  * Autotags plugin table(s)
  */
+global $_DB_table_prefix;
 $_TABLES['autotags']  = $_DB_table_prefix . 'autotags';
 
 
@@ -368,7 +369,7 @@ function plugin_getListField_autotags($fieldname, $fieldvalue, $A, $icon_arr) {
 */
 function plugin_autotags_autotags($op, $content = '', $autotag = '', $parameters = array())
 {
-    global $_CONF, $_TABLES, $_AUTOTAGS;
+    global $_CONF, $_TABLES, $_AUTOTAGS, $LANG01;
 
     loadAutotags();
 
@@ -463,7 +464,26 @@ function plugin_autotags_autotags($op, $content = '', $autotag = '', $parameters
                     $evalstring = '$type = "' . $type . '";';
                     $evalstring = '$id = "' . $id . '";';
                     $evalstring .= $record['replacement'];
-                    $replace = eval($evalstring);
+                    //$replace = eval($evalstring);
+
+                    // Lets try to error gracefully if we need too when evaluating PHP
+                    // Cannot use COM_handleEval as that is an outside function as the code we need to evaluate contains references to variables here
+                    if (version_compare(PHP_VERSION, '7.0.0', '<')) {
+                        $str = eval($evalstring);
+
+                        if ($str === false) {
+                            $errorMessage = $LANG01[144];
+                        }
+                    } else {
+                        try {
+                            $str = eval($evalstring);
+                        } catch (ParseError $e) {
+                            COM_errorLog(__FUNCTION__ . ': ' . $e->getMessage());
+                            $errorMessage = $LANG01[144];
+                        }
+                    }
+                    $replace = empty($errorMessage) ? $str : $errorMessage;
+
                     $content = str_replace($autotag['tagstr'], $replace, $content);
                 }
             } else {
