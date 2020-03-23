@@ -286,11 +286,20 @@ function autotagseditor ($tag, $mode = '')
 {
     global $_TABLES, $_USER, $_GROUPS, $_AUTO_CONF;
 
+    $load_autotag = false;
     if (!empty($tag) && $mode == 'edit') {
+        $load_autotag = true;
         $query = DB_query("SELECT * FROM {$_TABLES['autotags']} WHERE tag = '$tag'");
         $A = DB_fetchArray($query);
-        $A['old_tag'] = $A['tag'];
-    } elseif ($mode == 'edit') {
+        // See if tag exists
+        if (isset($A['tag'])) {
+            $A['old_tag'] = $A['tag'];
+        } else {
+            $tag = '';
+        }
+    }
+
+    if (empty($tag) && $mode == 'edit') {
         $A['tag'] = '';
         $A['description'] = '';
         $A['replacement'] = '';
@@ -308,7 +317,7 @@ function autotagseditor ($tag, $mode = '')
             $A['group_id'] = SEC_getFeatureGroup ('autotags.edit');
         }
         SEC_setDefaultPermissions ($A, $_AUTO_CONF['default_autotag_permissions']);
-    } else {
+    } elseif (!$load_autotag) {
         $A = $_POST;
         $A['tag'] = COM_applyFilter($A['tag']);
         if (!isset($A['perm_owner'])) $A['perm_owner'] = 0;
