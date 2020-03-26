@@ -368,16 +368,26 @@ function saveautotags ($tag, $old_tag, $description, $is_enabled, $is_function, 
         $is_function = 0;
     } else {
         if ($is_function) {
+			// Create variables passed when actual autotag used
+			// Autotag should be able to at least handled empty variables
+			$evalstring = '$p1 = "";';
+			$evalstring .= '$p2 = "";';
+			$evalstring .= '$p3 = "";'; // This may or may not be included if autotag actually run
+			$evalstring .= '$tagstr = "";';
+			$evalstring .= '$type = "";';
+			$evalstring .= '$id = "";';
+			$evalstring .= $replacement;			
+			
             // Check PHP Parsing if enabled and correct PHP version
             if (version_compare(PHP_VERSION, '7.0.0', '<')) {
-                $str = eval($replacement);
+                $str = eval($evalstring);
 
                 if ($str === false) {
                     $phpErrorMsg = $LANG01[144];
                 }
             } else {
                 try {
-                    $str = eval($replacement);
+                    $str = eval($evalstring);
                 } catch (ParseError $e) {
                     $phpErrorMsg =  $e->getMessage();
                     COM_errorLog(__FUNCTION__ . ': ' . $phpErrorMsg);

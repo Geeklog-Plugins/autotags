@@ -461,8 +461,8 @@ function plugin_autotags_autotags($op, $content = '', $autotag = '', $parameters
                     }
                     $evalstring .= '$tagstr = "' . addslashes($autotag['tagstr']) . '";';
                     $evalstring .= '$tagstr = stripslashes($tagstr);';
-                    $evalstring = '$type = "' . $type . '";';
-                    $evalstring = '$id = "' . $id . '";';
+                    $evalstring .= '$type = "' . $type . '";';
+                    $evalstring .= '$id = "' . $id . '";';
                     $evalstring .= $record['replacement'];
                     //$replace = eval($evalstring);
 
