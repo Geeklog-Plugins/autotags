@@ -5,7 +5,8 @@
 # This is the japanese language page for the Geeklog Autotags Plug-in!
 #
 # Copyright (C) 2006 Joe Mucchiello
-# Tranlated by Ivy (Geeklog Japanese)
+# Tranlated by Ivy (Geeklog Japan)
+#              Kenji ITO (Geeklog Japan)
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -27,35 +28,37 @@
 $LANG_AUTO = array(
     'newpage' => '新規ページ',
     'adminhome' => '管理者HOME',
-    'tag' => 'タグ名（英数字）',
+    'tag' => 'タグ名(英数字)',
     'autotag' => 'Autotag',
     'desc' => 'タグの説明',
     'replacement' => '置換文字列',
     'enabled' => '有効:',
-    'close_tag' => 'Requires Close Tag?',
+    'close_tag' => '閉じタグが必要',
     'function' => 'PHPで置換:',
     'short_function' => '関数',
     'autotagseditor' => '自動タグエディター',
-    'autotagsmanager' => '自動タグマネージャ',
-    'list_of_autotags' => 'List of Autotags',
+    'autotagsmanager' => '自動タグマネージャー',
+    'list_of_autotags' => '自動タグ一覧',
     'edit' => '編集',
     'save' => '保存',
     'delete' => '削除',
     'cancel' => 'キャンセル',
 
-    'save_success' => 'Your autotag was saved successfully.',
+    'save_success' => '自動タグを保存しました。',
 
     'access_denied' => 'アクセスが拒否されました。',
     'access_denied_msg' => '自動タグプラグインの管理者用ページに不正にアクセスしています。このアクセスは記録されますので、ご了承ください。',
     'deny_msg' => 'このページへのアクセスが拒否されました。ページが削除あるいはリネームされたのかも知れませんし、またはアクセス権がないのかもしれません。',
 
-    'php_msg_enabled' => 'これをチェックすると、＜phpautotags_タグ名＞という名前の関数が呼び出されて、タグを置換します。PHPにチェックを入れ、<b>置換文字列</b>を指定すると、PHPのコードとして評価されます。コード内では、$p1に第1引数、$p2に第2引数、$tagstrにタグ全体が代入されます。自動タグと置換する文字列を返すにはreturn文を使います。',
+    'php_msg_enabled' => 'これをチェックすると、 phpautotags_タグ名($p1, $p2, $autotag[\'tagstr\'], $p3, $type, $id) という形で関数が呼び出されて、タグを置換します。PHPにチェックを入れ、<b>置換文字列</b>を指定すると、PHPのコードとして評価されます。コード内では、$p1に第1引数、$p2に第2引数、$tagstrにタグ全体が代入されます。自動タグと置換する文字列を返すにはreturn文を使います。
+	<p>注意: $p3に値が設定されるのは閉じタグを有効にしている場合だけです。</p>
+	<p>$typeには自動タグを呼び出したプラグイン名、$idには自動タグを使用したプラグインのアイテムIDが渡されます。この2つの引数は記事と静的ページでサポートしています。この2つの引数をサポートしていないプラグインの場合は、空の文字列が渡されます。</p>',
     'php_msg_disabled' => 'タグを置換するための関数を呼び出す自動タグを編集するには、コンフィギュレーションで「PHPを許可する」を「はい」にし、さらに autotags.PHP権限をグループに与える必要があります。',
 
     'disallowed_tag' => '選択したタグは使えません。他を選んでください。',
     'duplicate_tag' => '選択したタグはすでに使用されています。他のタグを選ぶか、使用中のタグを編集してください。',
     'no_tag_or_replacement' => '<b>タグ</b>と<b>置換文字列</b>フィールドは必ず入力してください。',
-    'invalid_tag' => 'The tag must contain only alphanumeric characters (a-z, A-Z, 0-9), dashes (-) or underscores (_).',
+    'invalid_tag' => 'タグには英数字(a-z, A-Z, 0-9)とダッシュ(-)、アンダースコア(_)しか使えません。',
 
     'instructions' => '<p>自動タグの編集・削除は、タグの編集アイコンをクリックしてください。新規作成は、上の"新規作成"をクリックしてください。編集できないか、有効にできないタグがある場合は、それらは関数ベースのタグであり、あなたに autotags.PHP権限がないか、コンフィギュレーションで「PHPを許可する」を「いいえ」にしているため、関数ベースの自動タグが無効になっています。</p>',
     'replace_explain' => '自動タグの記述形式は <b>[tag:parameter1 parameter2]</b> です。<br' . XHTML . '>置換文字列フィールドにはHTMLを記述できます。<br' . XHTML . '>置換文字列フィールドの文字列中に <b>#1</b> や <b>#2</b> を記述することにより、<b>parameter1</b> や <b>parameter2</b> を含めることができます。</p>'
@@ -71,7 +74,7 @@ $LANG_AUTO = array(
 
     'usagepermissionskey' => 'U = 使用法',
 
-    'window_close' => 'クローズ',
+    'window_close' => '閉じる',
     'main_menulabel' => '自動タグ一覧',
 );
 
@@ -85,7 +88,7 @@ $LANG_confignames['autotags'] = array(
     'link_in_menu' => '自動タグをメニューに表示する',
     'disallow' => '使用できない自動タグ名',
     'allow_php' => 'PHPを許可する',
-    'default_autotag_permissions' => 'デフォルトのパーミッション'
+    'default_autotag_permissions' => 'パーミッションの既定値'
 );
 
 $LANG_configsubgroups['autotags'] = array(
@@ -109,5 +112,3 @@ $LANG_configselects['autotags'] = array(
     12 => array('アクセス不可' => 0, '表示' => 2, '表示・編集' => 3),
     13 => array('アクセス不可' => 0, '利用する' => 2)
 );
-
-?>
