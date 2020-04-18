@@ -8,7 +8,7 @@ INSTALL/UPGRADE:
 
 Step 1:  Back up your Geeklog Database.  The Autotags plugin adds tables to your Geeklog database.  You can do this with the built in admin backup facility.
 
-Step 2:  Either A) Log in to your Geeklog as a root user and upload the plugin using the Geeklog upload functionality found in the Admin Plugins page. If you do this skip to Step 6 OR B) Go to Step 3
+Step 2:  Either A) Log in to your Geeklog as a root user and upload the plugin using the Geeklog upload functionality found in the Admin Plugins page. If you do this skip to Step 7 OR B) Go to Step 3
 
 Step 3:  Uncompress the Autotags plugin archive from the path.to.geeklog/plugins directory.  The archive will create a directory called autotags in the plugins directory.
 
@@ -20,9 +20,9 @@ Step 6:  Log in to your Geeklog as a root user and visit the Admin Plugins page.
 
 Once installed/upgraded a success message will be displayed. If not examine Geeklog's log/error.log for possible problems.
 
-Note: The Autotags plugin should now be installed and functioning.  From the Geeklog Admin Control Panel, click on the Autotags icon and it will take you to the admin page.
+Step 7:  The Autotags plugin should now be installed and functioning.  From the Geeklog Admin Control Panel, click on the Autotags icon and it will take you to the admin page.
 
-Step 7:  Go to the Geeklog Configuration and find the Autotags Configuration. A new install is heavily restricted, only allowing administrative access.  From here you can loosen up the restrictions if you wish.
+Step 8:  Go to the Geeklog Configuration and find the Autotags Configuration. A new install is heavily restricted, only allowing administrative access.  From here you can loosen up the restrictions if you wish.
 
 Note:  None of the provided autotags are enabled by the installer. They are provided as examples of things you can do with autotags.
 
