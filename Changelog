@@ -1,9 +1,11 @@
-v1.1.3 2020-3-?
-- [Info] Supports Geeklog v2.2.1
+v1.1.3 2020-4-18
+- [Info] Requires Geeklog v2.2.1sr1
 - [Improvement] Supports PHP v7.3
 - [Improvement] Success message on save of autotag.
-- [Feature] Replace with PHP autotags supports extended functionality of PLG_replaceTags (will include plugin and id of item that the autotag is embedded in)
+- [Feature] Replace with PHP autotags supports extended functionality of PLG_replaceTags (autotag will know calling plugin and id of item that the autotag is embedded)
 - [Feature] If autotag supports PHP it will be parsed for errors on save (for PHP v7.0.0+ only). If autotag is used that has PHP parse errors it will try to error gracefully
+- [Bug] Fixed undeclared PHP variable errors
+- [Bug] Fixed SQL error on save when an invalid Autotag ID happens
 
 v1.1.2 2017-6-7
 - [Info] Supports Geeklog v2.2.0
