@@ -30,7 +30,7 @@ Note:  None of the provided autotags are enabled by the installer. They are prov
 
 UNINSTALL:
 
-Step 1:  From the Admin Plugins page, you can uninstall the Autotags Plugin.
+Step 1:  From the Admin Plugins page, you can uninstall the Autotags Plugin by clicking on the Delete button.
 
 Step 2:  You then must manually delete the three plugin directories created in the install process:  
 
