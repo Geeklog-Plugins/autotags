@@ -1,38 +1,39 @@
-Install/Uninstall instruction for the Geeklog Autotags Plugin v1.1.3. 
+Install/Upgrade/Uninstall instructions for the Geeklog Autotags Plugin v1.1.3+
 
 These instructions assume you have installed a Geeklog plugin before.
 
 You must be using at least Geeklog version v2.2.1sr1 to install this plugin.
 
+
 INSTALL/UPGRADE:
 
-Step 1:  Back up your Geeklog Database.  The Autotags plugin adds tables to your Geeklog database.  You can do this with the built in admin backup facility.
+Step 1:  Back up your Geeklog Database.  The Autotags Plugin adds tables to your Geeklog database.  You can do this with the built in admin backup facility.
 
-Step 2:  Either A) Log in to your Geeklog as a root user and upload the plugin using the Geeklog upload functionality found in the Admin Plugins page. If you do this skip to Step 7 OR B) Go to Step 3
+Step 2:  Either A) Log in to your Geeklog as a root user and upload the plugin using the Geeklog upload functionality found in the Admin Plugins page. If you do this, skip to Step 7, OR B) Go to Step 3.
 
-Step 3:  Uncompress the Autotags plugin archive from the path.to.geeklog/plugins directory.  The archive will create a directory called autotags in the plugins directory.
+Step 3:  Uncompress the Autotags Plugin archive from the path.to.geeklog/plugins directory.  The archive will create a directory called "autotags" in the plugins directory.
 
 Step 4:  Create the public_html and admin directories.  Under your html directory (usually public_html) create a directory called "autotags".  Under your admin/plugins/ directory create a directory called "autotags".
 
-Step 5:  From the path.to.geeklog/plugins/autotags/ directory, copy the files in the admin directory to the admin/plugins/autotags/ directory your created in step 4.  Likewise, copy the files and directories in the public_html directory to the public_html/autotags/ directory your created in step 4.
+Step 5:  From the path.to.geeklog/plugins/autotags/ directory, copy the files in the admin directory to the admin/plugins/autotags/ directory your created in Step 4.  Likewise, copy the files and directories in the public_html directory to the public_html/autotags/ directory your created in Step 4.
 
-Step 6:  Log in to your Geeklog as a root user and visit the Admin Plugins page.  For new installs look at the list of Uninstalled Plugins and you should fine the Autotags plugin listed. Click the install button. For upgrades, look at the plugin list, there should be an upgrade button visible that you can press to start the upgrade process. 
+Step 6:  Log in to your Geeklog as a root user and visit the Admin Plugins page.  For new installs look at the list of Uninstalled Plugins and you should fine the Autotags Plugin listed. Click the install button. For upgrades, look at the plugin list, there should be an upgrade button visible that you can press to start the upgrade process. 
 
-Once installed/upgraded a success message will be displayed. If not examine Geeklog's log/error.log for possible problems.
+Once installed/upgraded a success message will be displayed. If not examine Geeklog's logs/error.log for possible problems.
 
-Step 7:  The Autotags plugin should now be installed and functioning.  From the Geeklog Admin Control Panel, click on the Autotags icon and it will take you to the admin page.
+Step 7:  The Autotags Plugin should now be installed and functioning.  From the Geeklog Admin Control Panel, click on the Autotags icon and it will take you to the admin page.
 
 Step 8:  Go to the Geeklog Configuration and find the Autotags Configuration. A new install is heavily restricted, only allowing administrative access.  From here you can loosen up the restrictions if you wish.
 
 Note:  None of the provided autotags are enabled by the installer. They are provided as examples of things you can do with autotags.
 
+
 UNINSTALL:
 
-Step 1:  From the Admin Plugins page, you can uninstall the Autotags plugin.
+Step 1:  From the Admin Plugins page, you can uninstall the Autotags Plugin.
 
 Step 2:  You then must manually delete the three plugin directories created in the install process:  
+
 <geeklog-dir>plugins/autotags/ 
 <public_html>/autotags/
 <admin>/plugins/autotags/
-
-That's it.
