@@ -14,7 +14,10 @@
 
 ## Other Information
 
-Plugin Homepage:
+Geeklog Homepage:
+https://www.geeklog.net
+
+Autotags Plugin Homepage:
 https://github.com/Geeklog-Plugins/autotags
 
 To find the latest releases see:
