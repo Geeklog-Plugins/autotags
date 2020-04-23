@@ -1,11 +1,14 @@
 # Geeklog Autotags Plugin
 
 * Maintainers: [Geeklog Community Members](https://github.com/Geeklog-Plugins/autotags/graphs/contributors)
-* Latest Release Supports: Geeklog v2.2.1sr1+
+* Latest Release Supports: Geeklog v2.2.1sr1 or higher
+
+## Summary
+
+Allows Admins to create autotags (HTML only or PHP based) directly from the Geeklog Admin interface. 
 
 ## Main Features
 
-* Allows Admins to create autotags from the Geeklog Admin interface. 
 * Supports individual Tags and Closed Tags (feature of Geeklog 2.1.3)
 * Extended functionality for Autotags supported (PHP Only). Autotag knows calling plugin and plugin item id (feature of Geeklog 2.2.1)
 * Supports Autotag usage permissions
