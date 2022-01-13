@@ -22,7 +22,7 @@ function plugin_autoinstall_autotags($pi_name)
     $info = array(
         'pi_name'         => $pi_name,
         'pi_display_name' => $pi_display_name,
-        'pi_version'      => '1.1.3',
+        'pi_version'      => '1.1.4',
         'pi_gl_version'   => '2.2.1sr1', // Supports extended functionality of PLG_replaceTags and error php parse checks
         'pi_homepage'     => 'https://github.com/Geeklog-Plugins/autotags'
     );

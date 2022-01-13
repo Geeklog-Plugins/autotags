@@ -217,6 +217,11 @@ function plugin_upgrade_autotags()
 
             $current_version = '1.1.3';
             break;
+        
+		case '1.1.3':
+
+            $current_version = '1.1.4';
+            break;
 
         default:
             $done = true;
@@ -429,9 +434,8 @@ function plugin_autotags_autotags($op, $content = '', $autotag = '', $parameters
             $id = '';
         }
 
-		// No reason for this next line. If someone needs to do this they can do it in the actual autotag code
-        // if (empty($p2)) $p2 = $p1;
-        
+        if (empty($p2)) $p2 = $p1;
+
         if (isset($_AUTOTAGS[$autotag['tag']]))
         {
             $record = $_AUTOTAGS[$autotag['tag']];
