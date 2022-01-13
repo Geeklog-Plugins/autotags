@@ -54,7 +54,8 @@ $LANG_AUTO = array(
         <p>Note: The $p3 variable is only passed if the close tag is enabled.</p>
         <p>If the PHP checkbox is checked and the  <b>Replace With</b> field contains text then the text will be evaluated as PHP. To access the first parameter reference the $p1 variable, for the second parameter you would reference $p2, and for the third parameter you would reference $p3 in your PHP script.</p>
         <p>The $type parameter is the name of the plugin that the autotag was called from and the $id paramter is the id of the item for the plugin that autotag was in. These 2 parameters are supported by Articles and Static Pages. If a plugin does not support these 2 parameters then they will contain an empty string.</p>
-        <p>The variable $tagstr will contain the entire string. Use return in your PHP script to return the text you want to replace the autotag with.',
+        <p>The variable $tagstr will contain the entire string. Use return in your PHP script to return the text you want to replace the autotag with.</p>
+		<p>Remember you need to be very careful when using PHP and selecting variable names for variables you create in your code. Make sure they are unique as variables can unintentionally be overwritten if they are for example global in scope and/or are local in scope but are being used in the Autotags function already that will be evaluating your PHP code.',
     'php_msg_disabled' => 'You must set the Allow PHP configuration setting to true in the Geeklog Configuration panel and be in a group with the autotags.PHP feature in order to modify autotags that call a function to translate the tag.',
 
     'disallowed_tag' => 'The tag you have chosen is restricted and not available for use. Choose another tag.',
