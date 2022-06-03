@@ -1,5 +1,6 @@
 v1.1.4 2022-?-?
-
+- [Improvement] Tweaked code
+- [Info] Confirmed to work on PHP v8.1
 v1.1.3 2020-4-18
 - [Info] Requires Geeklog v2.2.1sr1
 - [Improvement] Supports PHP v7.3
