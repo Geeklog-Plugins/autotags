@@ -2,6 +2,7 @@
 
 * Maintainers: [Geeklog Community Members](https://github.com/Geeklog-Plugins/autotags/graphs/contributors)
 * Latest Release Supports: Geeklog v2.2.1sr1 or higher
+* Supports PHP 8.1
 
 ## Summary
 
@@ -30,6 +31,10 @@ To request a feature or report an issue see:
 https://github.com/Geeklog-Plugins/autotags/issues
 
 ## Versions
+
+### Geeklog Autotags plugin - version 1.1.4
+
+* Release Date: October 10, 2022
 
 ### Geeklog Autotags plugin - version 1.1.3
 
