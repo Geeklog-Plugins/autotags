@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "id": "autotags",
+  "name": "autotags",
+  "icon": "admin/images/autotags.png",
+  "requires": {
+    "php": "7.0.0"
+  }
+}
